@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+
+{% block contents %}
+<body>
+<br>              
+
+<div class="container" style="margin-top : 10px;">
+<h2>윌리엄이 했던 말들</h2></div> 
+<div class="container"><img src="{% static 'william1.jpg'%}" height =300 alt="윌리엄 사진"></div>
+    <br>
+    
+    {% for blog in blogs.all%}
+          <div class="container">
+           <div class="card" style="margin-bottom : 30px;">
+            <div class="card-body">
+                
+            <h5 class="card-title">{{blog.title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{blog.who}}</h6>
+            <p class="card-text"> {{blog.summary}}</p>
+            <a href="{%url 'detail' blog.id%}" class="card-link">More...</a>
+            </div>
+           </div>
+          </div>
+      {%endfor%}
+
+</body>
+{% endblock %}
