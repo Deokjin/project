@@ -26,4 +26,5 @@ urlpatterns = [
     path("submit/", blogapp.views.submit, name="submit"),
     path("portfolio/", portfolio.views.portfolio, name="portfolio"),
     path('blog/', include('blogapp.urls')),
+    path('account/', include('account.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
