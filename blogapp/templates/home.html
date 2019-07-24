@@ -10,7 +10,7 @@
 <div class="container"><img src="{% static 'william1.jpg'%}" height =300 alt="윌리엄 사진"></div>
     <br>
     
-    {% for blog in blogs.all%}
+    {% for blog in posts %}
           <div class="container">
            <div class="card" style="margin-bottom : 30px;">
             <div class="card-body">
@@ -23,6 +23,23 @@
            </div>
           </div>
       {%endfor%}
+          <!--First Previous 3 of 4 Next Last 이렇게 만들거임--> 
+<div class="container">
+<!--First Previous / posts에 대한 method함수를 활용한 것-->
+{%if posts.has_previous%}
+<a href="?page=1">First</a>
+<a href="?page={{posts.previous_page_number}}">Previous</a>
+{%endif%}
+<!--3 of 4-->
+<span>{{posts.number}}</span>
+<span>of</span>
+<span>{{posts.paginator.num_pages}}</span>
+<!--Next Last-->
+{%if posts.has_next%}
+<a href="?page={{posts.next_page_numbers}}">Next</a>
+<a href="?page={{posts.paginator.num_pages}}">Last</a>
+{%endif%}
+</div>
 
 </body>
 {% endblock %}

@@ -22,7 +22,7 @@
         <li class="nav-item">
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown button
+                  Category
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item" href="{%url 'portfolio'%}">Portfolio</a>
@@ -30,6 +30,9 @@
                   <a class="dropdown-item" href="{%url 'login'%}">Log In!</a>
                 </div>
               </div>
+        </li>
+        <li>
+          <button type="button" class="btn btn-light" href="{%url 'logout'%}">Logout</button>
         </li>
       </ul>
     </div>

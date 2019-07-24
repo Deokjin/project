@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -40,6 +41,16 @@ INSTALLED_APPS = [
     'blogapp.apps.BlogappConfig',
     'portfolio.apps.PortfolioConfig',
     'account.apps.AccountConfig',
+
+
+    #allauth 관련 설정
+
+    #'allauth',
+    #'allauth.account',
+    #'allauth.socialaccount',
+   # 
+    ##provider
+    #'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +145,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
+
+AUTHENTICATINO_BACKENDS = (
+    #needed to login by username in django admim, regardless of allauth
+    'django.contrib.auth.backends.ModelBackend',
+    # allauth specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+STIE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
+
+#AUTH_USER_MODEL = '{app-name}.{User-model-name}'
+#AUTH_USER_MODEL = 'api.User'
